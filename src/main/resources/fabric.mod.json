@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "id": "lootbeams",
+  "version": "${version}",
+  "name": "Lootbeams",
+  "description": "",
+  "authors": [],
+  "contact": {},
+  "license": "MPL-2.0",
+  "icon": "assets/lootbeams/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "mc.lootbeams.LootbeamsClient"
+    ]
+  },
+  "mixins": [
+    "lootbeams.mixin.json"
+  ],
+  "depends": {
+    "fabricloader": "*",
+    "fabric": "*",
+    "minecraft": ">=1.16"
+  }
+}
