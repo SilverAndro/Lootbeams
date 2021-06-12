@@ -9,9 +9,9 @@ public class LootbeamsConfig implements ConfigData {
     @Comment("How many particles to create per tick")
     public int particleCount = 1;
     @Comment("How tall the loot beam is (in blocks)")
-    public float beamHeight = 0.8f;
+    public double beamHeight = 0.8;
     @Comment("How much to offset the beam vertically (in blocks)")
-    public float beamOffset = 0.2f;
+    public double beamOffset = 0.2;
     @Comment("How old the item needs to be before it gets a beam (in ticks)")
     public int minimumAge = 10;
     
