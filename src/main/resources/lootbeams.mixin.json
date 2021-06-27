@@ -2,13 +2,11 @@
   "required": true,
   "minVersion": "0.8",
   "package": "mc.lootbeams.mixin",
-  "compatibilityLevel": "JAVA_8",
-  "mixins": [
-    "ItemEntityAgeAccessor"
-  ],
-  "client": [
-  ],
+  "compatibilityLevel": "JAVA_16",
   "injectors": {
     "defaultRequire": 1
-  }
+  },
+  "mixins": [
+    "ItemEntityAgeAccessor"
+  ]
 }
