@@ -23,13 +23,20 @@ public class LootbeamsClient implements ClientModInitializer {
     
     private final HashMap<ItemEntity, Integer> itemsToColors = new HashMap<>();
     
+    private int resetTimer = 0;
+
     @Override
     public void onInitializeClient() {
         ClientTickEvents.END_WORLD_TICK.register(world -> {
+            if (resetTimer++ > 40) {
+                itemsToColors.clear();
+                resetTimer = 0;
+            }
+
             assert MinecraftClient.getInstance().player != null;
             List<ItemEntity> items = world.getEntitiesByType(
                 EntityType.ITEM,
-                new Box(MinecraftClient.getInstance().player.getBlockPos()).expand(64.0),
+                new Box(MinecraftClient.getInstance().player.getBlockPos()).expand(config.beamDistance),
                 entity -> !itemsToColors.containsKey(entity)
             );
             
