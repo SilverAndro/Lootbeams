@@ -5,7 +5,7 @@ import mc.microconfig.ConfigData;
 
 public class LootbeamsConfig implements ConfigData {
     @Comment("If items with a white (common) item name should get a beam")
-    public boolean showWhiteItems = false;
+    public boolean showWhiteItems = true;
 
     @Comment("How many particles to create per tick")
     public int particleCount = 1;
