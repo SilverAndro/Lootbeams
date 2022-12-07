@@ -12,7 +12,7 @@ import net.minecraft.particle.DustParticleEffect;
 import net.minecraft.text.Text;
 import net.minecraft.text.TextColor;
 import net.minecraft.util.math.Box;
-import net.minecraft.util.math.Vec3f;
+import org.joml.Vector3f;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -43,7 +43,7 @@ public class LootbeamsClient implements ClientModInitializer {
             items.forEach(entity -> {
                 try {
                     if (entity != null) {
-                        List<Text> text = entity.getStack().getTooltip(null, TooltipContext.Default.NORMAL);
+                        List<Text> text = entity.getStack().getTooltip(null, TooltipContext.Default.BASIC);
                         
                         TextColor color = text.get(0).getStyle().getColor();
                         
@@ -83,7 +83,7 @@ public class LootbeamsClient implements ClientModInitializer {
                         for (int i = 0; i < config.particleCount; i++) {
                             world.addParticle(
                                 new DustParticleEffect(
-                                    new Vec3f(
+                                    new Vector3f(
                                         ((color >> 16) & 0xFF) / 255f,
                                         ((color >> 8) & 0xFF) / 255f,
                                         (color & 0xFF) / 255f
