@@ -1,5 +1,5 @@
 plugins {
-    id 'fabric-loom' version '1.0-SNAPSHOT'
+    id 'fabric-loom' version '1.7.+'
     id 'maven-publish'
 }
 
@@ -11,7 +11,15 @@ version = project.mod_version
 group = project.maven_group
 
 repositories {
-    maven { url 'https://jitpack.io' }
+    maven {
+        url "https://maven.silverandro.dev/"
+    }
+    maven {
+        url "https://cursemaven.com"
+        content {
+            includeGroup "curse.maven"
+        }
+    }
 }
 
 dependencies {
@@ -23,8 +31,10 @@ dependencies {
     // Fabric API. This is technically optional, but you probably want it anyway.
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
-    modImplementation 'com.github.P03W:Microconfig:2.0.1'
-    include 'com.github.P03W:Microconfig:2.0.1'
+    modImplementation 'dev.silverandro:microconfig:3.0.0'
+    include 'dev.silverandro:microconfig:3.0.0'
+
+    modCompileOnly 'curse.maven:tierify-974356:5111351'
 }
 
 processResources {
@@ -42,35 +52,6 @@ tasks.withType(JavaCompile) {
     options.encoding = "UTF-8"
 }
 
-// Loom will automatically attach sourcesJar to a RemapSourcesJar task and to the "build" task
-// if it is present.
-// If you remove this task, sources will not be generated.
-task sourcesJar(type: Jar, dependsOn: classes) {
-    classifier = "sources"
-    from sourceSets.main.allSource
-}
-
 jar {
     from "LICENSE"
-}
-
-// configure the maven publication
-publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            // add all the jars that should be included when publishing to maven
-            artifact(remapJar) {
-                builtBy remapJar
-            }
-            artifact(sourcesJar) {
-                builtBy remapSourcesJar
-            }
-        }
-    }
-
-    // select the repositories you want to publish to
-    repositories {
-        // uncomment to publish to the local maven
-        // mavenLocal()
-    }
 }

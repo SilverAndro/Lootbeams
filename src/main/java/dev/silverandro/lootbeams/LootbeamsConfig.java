@@ -1,7 +1,7 @@
-package mc.lootbeams;
+package dev.silverandro.lootbeams;
 
-import mc.microconfig.Comment;
-import mc.microconfig.ConfigData;
+import dev.silverandro.microconfig.Comment;
+import dev.silverandro.microconfig.ConfigData;
 
 public class LootbeamsConfig implements ConfigData {
     @Comment("If items with a white (common) item name should get a beam")
@@ -17,11 +17,17 @@ public class LootbeamsConfig implements ConfigData {
     public double beamOffset = 0.2;
 
     @Comment("How old the item needs to be before it gets a beam (in ticks)")
-    public int minimumAge = 10;
+    public int minimumAge = 12;
 
     @Comment("How close items need to be to get a beam")
     public double beamDistance = 64.0;
-    
+
+    @Comment("Adds extra particles for enchanted items")
+    public boolean enchantedParticles = true;
+
+    @Comment("Uses the color of the base item instead of the tooltip")
+    public boolean useBaseColor = false;
+
     @Comment("If the mod should print caught errors instead of swallowing them")
     public boolean printErrors = false;
 }

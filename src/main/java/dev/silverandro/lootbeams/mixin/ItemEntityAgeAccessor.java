@@ -1,4 +1,4 @@
-package mc.lootbeams.mixin;
+package dev.silverandro.lootbeams.mixin;
 
 import net.minecraft.entity.ItemEntity;
 import org.spongepowered.asm.mixin.Mixin;
