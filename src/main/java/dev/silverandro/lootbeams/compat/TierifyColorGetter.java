@@ -1,5 +1,6 @@
 package dev.silverandro.lootbeams.compat;
 
+import dev.silverandro.lootbeams.ColorGetter;
 import dev.silverandro.lootbeams.LootbeamsConfig;
 import elocindev.tierify.compat.ItemBordersCompat;
 import net.minecraft.entity.ItemEntity;
@@ -14,8 +15,11 @@ public class TierifyColorGetter {
             String tier = compound.getString("Tier");
             if (tier != null && !tier.isBlank() && !(tier.contains(":common") && !config.showWhiteItems)) {
                 return TextColor.fromRgb(Integer.parseInt(ItemBordersCompat.getColorForIdentifier(new Identifier(tier)).substring(2), 16));
+            } else {
+                return ColorGetter.getFromStack(entity.getStack());
             }
+        } else {
+            return ColorGetter.getFromStack(entity.getStack());
         }
-        return null;
     }
 }

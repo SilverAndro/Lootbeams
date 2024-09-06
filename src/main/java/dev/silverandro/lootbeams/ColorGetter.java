@@ -26,7 +26,7 @@ public class ColorGetter {
         return color;
     }
 
-    private static TextColor getFromStack(ItemStack stack) {
+    public static TextColor getFromStack(ItemStack stack) {
         List<Text> text = stack.getTooltip(null, TooltipContext.Default.BASIC);
 
         TextColor color = text.get(0).getStyle().getColor();
