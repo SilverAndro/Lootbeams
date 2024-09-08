@@ -34,7 +34,7 @@ dependencies {
     modImplementation 'dev.silverandro:microconfig:3.0.0'
     include 'dev.silverandro:microconfig:3.0.0'
 
-    modCompileOnly 'curse.maven:tierify-974356:5111351'
+    //modCompileOnly 'curse.maven:tierify-974356:5111351'
 }
 
 processResources {

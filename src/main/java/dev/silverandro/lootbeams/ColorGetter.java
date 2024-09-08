@@ -2,9 +2,11 @@ package dev.silverandro.lootbeams;
 
 import dev.silverandro.lootbeams.compat.TierifyColorGetter;
 import net.fabricmc.loader.api.FabricLoader;
-import net.minecraft.client.item.TooltipContext;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.ItemEntity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.text.Text;
 import net.minecraft.text.TextColor;
 
@@ -27,7 +29,7 @@ public class ColorGetter {
     }
 
     public static TextColor getFromStack(ItemStack stack) {
-        List<Text> text = stack.getTooltip(null, TooltipContext.Default.BASIC);
+        List<Text> text = stack.getTooltip(Item.TooltipContext.create(MinecraftClient.getInstance().world), MinecraftClient.getInstance().player, TooltipType.BASIC);
 
         TextColor color = text.get(0).getStyle().getColor();
 

@@ -4,6 +4,7 @@ import dev.silverandro.lootbeams.mixin.ItemEntityAgeAccessor;
 import dev.silverandro.microconfig.MicroConfig;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ItemEntity;
@@ -23,6 +24,10 @@ public class LootbeamsClient implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
+        if (FabricLoader.getInstance().isModLoaded("tiered")) {
+            System.err.println("Lootbeams tierify/tiered support not implemented for this version! Please update this mod or open an issue!");
+        }
+
         ClientTickEvents.END_WORLD_TICK.register(world -> {
             assert MinecraftClient.getInstance().player != null;
             List<ItemEntity> items = world.getEntitiesByType(
