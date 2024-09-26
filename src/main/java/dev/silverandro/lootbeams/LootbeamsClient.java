@@ -45,7 +45,10 @@ public class LootbeamsClient implements ClientModInitializer {
                         }
                     }
                 } catch (Throwable possible) {
-                    if (config.printErrors) {
+                    if (config.debug.throwErrors) {
+                        throw possible;
+                    }
+                    if (config.debug.printErrors) {
                         possible.printStackTrace();
                     }
                 }

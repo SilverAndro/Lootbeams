@@ -28,6 +28,25 @@ public class LootbeamsConfig implements ConfigData {
     @Comment("Uses the color of the base item instead of the tooltip")
     public boolean useBaseColor = false;
 
-    @Comment("If the mod should print caught errors instead of swallowing them")
-    public boolean printErrors = false;
+    @Comment("Workarounds that may resolve some issues")
+    public Workarounds workarounds = new Workarounds();
+
+    @Comment("Debug options")
+    public DebugConfig debug = new DebugConfig();
+
+    public static class DebugConfig implements ConfigData {
+        @Comment("If the mod should log caught errors instead of swallowing them")
+        public boolean printErrors = true;
+
+        @Comment("If the mod should throw caught errors instead of logging them")
+        public boolean throwErrors = false;
+    }
+
+    public static class Workarounds implements ConfigData {
+        @Comment("Skips empty text units, may resolve some issues in modded games or servers")
+        public boolean skipEmptyTextUnits = false;
+
+        @Comment("Skips white and uncolored text units, may resolve some issues in modded games or servers")
+        public boolean skipWhiteAndUncoloredTextUnits = false;
+    }
 }

@@ -3,9 +3,12 @@
   "id": "lootbeams",
   "version": "${version}",
   "name": "Lootbeams",
-  "description": "",
-  "authors": [],
-  "contact": {},
+  "description": "Adds lootbeams to dropped items",
+  "authors": ["SilverAndro"],
+  "contact": {
+    "sources": "https://github.com/SilverAndro/Lootbeams/",
+    "issues": "https://github.com/SilverAndro/Lootbeams/issues"
+  },
   "license": "MPL-2.0",
   "icon": "assets/lootbeams/icon.png",
   "environment": "*",

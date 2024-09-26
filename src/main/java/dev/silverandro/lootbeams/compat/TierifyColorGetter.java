@@ -19,6 +19,6 @@ public class TierifyColorGetter {
             return ColorGetter.getFromStack(entity.getStack());
         }
         */
-        return ColorGetter.getFromStack(entity.getStack());
+        return ColorGetter.getFromStack(entity.getStack(), config);
     }
 }
